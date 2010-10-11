@@ -8,6 +8,10 @@ Add the class .clear-input to any input element
 whose value you want cleared when it gains focus.
 The initial value will be replaced when the input
 loses focus, and no new text has been entered.
+
+If you prefer to not add classes to your elements,
+you can alternatively call clearInput() on any jQuery
+input object.
 */
 (function( $ ){
   // define the initialValue() function
@@ -18,10 +22,9 @@ loses focus, and no new text has been entered.
       return this.attr('initial-value');
     }
   };
-
-  // apply plugin to all inputs with class ".clear-input"
-  $(function() {
-    $('input.clear-input')
+  
+  $.fn.clearInput = function() {
+    return this
       .focus(function(){
         if (this.value == $(this).initialValue()) {
           this.value = '';
@@ -35,5 +38,10 @@ loses focus, and no new text has been entered.
       .each(function(index, elt) {
         $(this).initialValue(this.value);
       });
+  };
+
+  // apply plugin to all inputs with class ".clear-input"
+  $(function() {
+    $('input.clear-input').clearInput();
   });
 })( jQuery );
