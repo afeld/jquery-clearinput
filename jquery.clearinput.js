@@ -4,7 +4,7 @@ v1.0
 Author: Aidan Feldman
 
 USAGE
-Add the class .clear-input to any input element
+Add the class .clear-input to any text input element
 whose value you want cleared when it gains focus.
 The initial value will be replaced when the input
 loses focus, and no new text has been entered.
