@@ -1,4 +1,8 @@
 /*
+jQuery Clear-Input plugin
+v1.0
+Author: Aidan Feldman
+
 USAGE
 Add the class .clear-input to any input element
 whose value you want cleared when it gains focus.
