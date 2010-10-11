@@ -9,16 +9,16 @@ You can have multiple clear-input fields on a single page, and they will not con
 #Example
 
 Suppose you have a form with a single field for entering an email address, and the text input 
-  <form>
-    <input name="email" value="Enter your email address" type="text" />
-    <input type="submit" />
-  </form>
-  
-To use the plugin, either add the `clear-input` class to your input element, like so:
-  <input class="clear-text" name="email" value="Enter your email address" type="text" />
-  
+    <form>
+        <input name="email" value="Enter your email address" type="text" />
+        <input type="submit" />
+    </form>
+
+To use the plugin, either add the `clear-input` class to your input element,
+    <input class="clear-text" name="email" value="Enter your email address" type="text" />
+
 or, enable it using the `clearInput()` function:
-  $(document).ready(function(){
-    $("input[type='text']").clearInput();
-  });
+    $(document).ready(function(){
+        $("input[type='text']").clearInput();
+    });
 
