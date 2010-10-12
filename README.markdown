@@ -9,7 +9,8 @@ You can have multiple clear-input fields on a single page, and they will not con
 #Example
 
 Live demo & homepage:
-http://afeld.github.com/jquery-clearinput/
+
+(http://afeld.github.com/jquery-clearinput)
 
 Suppose you have a form with a single field for entering an email address, and the text input 
     <form>
