@@ -6,6 +6,10 @@ If you prefer to not add classes to your elements, you can alternatively call `c
 
 You can have multiple clear-input fields on a single page, and they will not conflict.
 
+#Requirements
+
+Compatible with jQuery v1.2+.
+
 #Example
 
 Suppose you have a form with a single field for entering an email address, and the text input 
