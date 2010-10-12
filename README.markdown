@@ -1,6 +1,10 @@
 #Usage
 
-Requires jQuery version Add the class `clear-input` to any text input element whose value you want cleared when it gains focus.  The initial value will be replaced when the input loses focus, and no new text has been entered.
+In the `<head>` of your HTML, include jQuery, followed by the plugin, i.e.
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript"></script>
+    <script src="jquery.clearinput.js" type="text/javascript"></script
+
+Add the class `clear-input` to any text input element whose value you want cleared when it gains focus.  The initial value will be replaced when the input loses focus, and no new text has been entered.
 
 If you prefer to not add classes to your elements, you can alternatively call `clearInput()` on any jQuery input object.
 
