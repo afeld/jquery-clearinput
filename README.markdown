@@ -15,7 +15,7 @@ Suppose you have a form with a single field for entering an email address, and t
     </form>
 
 To use the plugin, either add the `clear-input` class to your input element,
-    <input class="clear-text" name="email" value="Enter your email address" type="text" />
+    <input class="clear-input" name="email" value="Enter your email address" type="text" />
 
 or, enable it using the `clearInput()` function:
     $(document).ready(function(){
