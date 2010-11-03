@@ -17,9 +17,9 @@ input object.
   // define the initialValue() function
   $.fn.initialValue = function(value) {
     if (value) {
-      return this.attr('initial-value', value);
+      return this.attr('data-initial-value', value);
     } else {
-      return this.attr('initial-value');
+      return this.attr('data-initial-value');
     }
   };
   
