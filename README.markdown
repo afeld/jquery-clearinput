@@ -33,3 +33,7 @@ or, enable it using the `clearInput()` function:
 #Requirements
 
 Compatible with jQuery v1.2+.
+
+# See also
+
+This plugin sets the usage text as the value for the input element.  To use labels, see Doug Neiner's [In-Field Labels](http://fuelyourcoding.com/in-field-labels/) plugin.
