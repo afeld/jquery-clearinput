@@ -22,6 +22,30 @@ Site: http://github.com/afeld/jquery-clearinput
     }
   }
   
+  function onFocus(){
+    var $el = $(this),
+      elEmptyVal = $el.data('empty-value');
+    
+    if (isContentEditable($el) && $el.text() === elEmptyVal){
+      // contenteditable field
+      $el.text('');
+      
+      // This is a bit of a hack to ensure the cursor will always appear
+      // after the contents are cleared.  This probably isn't supported in
+      // all browsers.
+      if (document.createRange && window.getSelection){
+        var range = document.createRange()
+        range.selectNodeContents(this);
+        range.collapse(true);
+        window.getSelection().addRange(range);
+      }
+      
+    } else if ($el.val() === elEmptyVal){
+      // normal input field
+      $el.val('');
+    }
+  }
+  
   $.fn.clearInput = function(emptyValue){
     return this
       .each(function(){
@@ -32,29 +56,7 @@ Site: http://github.com/afeld/jquery-clearinput
         $el.data('empty-value', eltEmptyVal);
         setIfEmpty($el);
       })
-      .focus(function(){
-        var $el = $(this),
-          elEmptyVal = $el.data('empty-value');
-        
-        if (isContentEditable($el) && $el.text() === elEmptyVal){
-          // contenteditable field
-          $el.text('');
-          
-          // This is a bit of a hack to ensure the cursor will always appear
-          // after the contents are cleared.  This probably isn't supported in
-          // all browsers.
-          if (document.createRange && window.getSelection){
-            var range = document.createRange();
-            range.selectNodeContents(this);
-            range.collapse(true);
-            window.getSelection().addRange(range);
-          }
-          
-        } else if ($el.val() === elEmptyVal){
-          // normal input field
-          $el.val('');
-        }
-      })
+      .focus(onFocus)
       .blur(function(){
         setIfEmpty(this);
       });
