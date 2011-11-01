@@ -5,7 +5,8 @@ Author: Aidan Feldman
 Site: http://github.com/afeld/jquery-clearinput
 */
 (function( $ ){
-  var EMPTY_CLASS = 'is-empty';
+  var EMPTY_CLASS = 'is-empty',
+    PRESENT_CLASS = 'is-present';
 
   function isContentEditable(el){
     var contentEditable = $(el).attr('contenteditable');
@@ -19,25 +20,30 @@ Site: http://github.com/afeld/jquery-clearinput
       emptyVal = $el.data('empty-value');
     
     if (contentEditable && !$el.text()){
-      $el
-        .text(emptyVal)
-        .addClass(EMPTY_CLASS);
+      $el.text(emptyVal);
+      setClasses($el, true);
     } else if (!contentEditable && !$el.val()) {
-      $el
-        .val(emptyVal)
-        .addClass(EMPTY_CLASS);
+      $el.val(emptyVal);
+      setClasses($el, true);
     }
   }
   
+  function setClasses($el, isEmpty){
+    if (isEmpty){
+      $el.removeClass(PRESENT_CLASS).addClass(EMPTY_CLASS);
+    } else {
+      $el.removeClass(EMPTY_CLASS).addClass(PRESENT_CLASS);
+    }
+  }
+
   function onFocus(){
     var $el = $(this),
       elEmptyVal = $el.data('empty-value');
     
     if (isContentEditable($el) && $el.text() === elEmptyVal){
       // contenteditable field
-      $el
-        .text('')
-        .removeClass(EMPTY_CLASS);
+      $el.text('');
+      setClasses($el, false);
       
       // This is a bit of a hack to ensure the cursor will always appear
       // after the contents are cleared.  This probably isn't supported in
@@ -51,9 +57,8 @@ Site: http://github.com/afeld/jquery-clearinput
       
     } else if ($el.val() === elEmptyVal){
       // normal input field
-      $el
-        .val('')
-        .removeClass(EMPTY_CLASS);
+      $el.val('');
+      setClasses($el, false);
     }
   }
   
