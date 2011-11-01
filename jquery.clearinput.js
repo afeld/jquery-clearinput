@@ -5,10 +5,21 @@ Author: Aidan Feldman
 Site: http://github.com/afeld/jquery-clearinput
 */
 (function( $ ){
+  function isContentEditable(el){
+    var contentEditable = $(el).attr('contenteditable');
+    return contentEditable === '' || contentEditable === 'true';
+  }
+  
   // sets the field to the empty-value if it has none
   function setIfEmpty(el){
-    var $el = $(el);
-    $el.val() || $el.val($el.data('empty-value'));
+    var $el = $(el),
+      emptyVal = $el.data('empty-value');
+    
+    if (isContentEditable($el)){
+      $el.text() || $el.text(emptyVal);
+    } else {
+      $el.val() || $el.val(emptyVal);
+    }
   }
   
   $.fn.clearInput = function(emptyValue){
@@ -22,8 +33,25 @@ Site: http://github.com/afeld/jquery-clearinput
         setIfEmpty($el);
       })
       .focus(function(){
-        var $el = $(this);
-        if ($el.val() === $el.data('empty-value')){
+        var $el = $(this),
+          elEmptyVal = $el.data('empty-value');
+        
+        if (isContentEditable($el) && $el.text() === elEmptyVal){
+          // contenteditable field
+          $el.text('');
+          
+          // This is a bit of a hack to ensure the cursor will always appear
+          // after the contents are cleared.  This probably isn't supported in
+          // all browsers.
+          if (document.createRange && window.getSelection){
+            var range = document.createRange();
+            range.selectNodeContents(this);
+            range.collapse(true);
+            window.getSelection().addRange(range);
+          }
+          
+        } else if ($el.val() === elEmptyVal){
+          // normal input field
           $el.val('');
         }
       })

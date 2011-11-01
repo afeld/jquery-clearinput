@@ -62,10 +62,11 @@
     <pre>&lt;input name="email" id="example1"&gt;
 
 &lt;script type="text/javascript"&gt;
-$(document).ready(function(){
-  $("#example1")<span class="highlight">.clearInput("Enter email")</span>;
-});
+  $(document).ready(function(){
+    $("#example1")<span class="highlight">.clearInput("Enter email")</span>;
+  });
 &lt;/script&gt;</pre>
+    
     or as a <code class="highlight">data-empty-value</code> attribute:<br />
     <input name="email" data-empty-value="Enter email" id="example2"/>
     <input type="submit"/>
@@ -77,9 +78,24 @@ $(document).ready(function(){
     <pre>&lt;input name="email" <span class="highlight">data-empty-value="Enter email"</span> id="example2"&gt;
 
 &lt;script type="text/javascript"&gt;
-$(document).ready(function(){
-  $("#example2")<span class="highlight">.clearInput()</span>;
-});
+  $(document).ready(function(){
+    $("#example2")<span class="highlight">.clearInput()</span>;
+  });
+&lt;/script&gt;</pre>
+    
+    It even works on <code>contenteditable</code> fields:<br />
+    <div contenteditable="true" id="example3"></div>
+    <script type="text/javascript">
+    $(document).ready(function(){
+      $("#example3").clearInput("Type here");
+    });
+    </script>
+    <pre>&lt;div <span class="highlight">contenteditable="true"</span> id="example3"&gt;&lt;/div&gt;
+
+&lt;script type="text/javascript"&gt;
+  $(document).ready(function(){
+    $("#example3")<span class="highlight">.clearInput("Type here")</span>;
+  });
 &lt;/script&gt;</pre>
     
     <p>You can have multiple clear-input fields on a single page, and they will not conflict.  See <a href="https://raw.github.com/afeld/jquery-clearinput/master/sample.html">sample.html</a> for the very basic usage.</p>
