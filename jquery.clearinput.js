@@ -5,6 +5,8 @@ Author: Aidan Feldman
 Site: http://github.com/afeld/jquery-clearinput
 */
 (function( $ ){
+  var EMPTY_CLASS = 'is-empty';
+
   function isContentEditable(el){
     var contentEditable = $(el).attr('contenteditable');
     return contentEditable === '' || contentEditable === 'true';
@@ -13,12 +15,17 @@ Site: http://github.com/afeld/jquery-clearinput
   // sets the field to the empty-value if it has none
   function setIfEmpty(el){
     var $el = $(el),
+      contentEditable = isContentEditable($el),
       emptyVal = $el.data('empty-value');
     
-    if (isContentEditable($el)){
-      $el.text() || $el.text(emptyVal);
-    } else {
-      $el.val() || $el.val(emptyVal);
+    if (contentEditable && !$el.text()){
+      $el
+        .text(emptyVal)
+        .addClass(EMPTY_CLASS);
+    } else if (!contentEditable && !$el.val()) {
+      $el
+        .val(emptyVal)
+        .addClass(EMPTY_CLASS);
     }
   }
   
@@ -28,7 +35,9 @@ Site: http://github.com/afeld/jquery-clearinput
     
     if (isContentEditable($el) && $el.text() === elEmptyVal){
       // contenteditable field
-      $el.text('');
+      $el
+        .text('')
+        .removeClass(EMPTY_CLASS);
       
       // This is a bit of a hack to ensure the cursor will always appear
       // after the contents are cleared.  This probably isn't supported in
@@ -42,7 +51,9 @@ Site: http://github.com/afeld/jquery-clearinput
       
     } else if ($el.val() === elEmptyVal){
       // normal input field
-      $el.val('');
+      $el
+        .val('')
+        .removeClass(EMPTY_CLASS);
     }
   }
   

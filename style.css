@@ -28,5 +28,10 @@ hr { border: 0; width: 80%; border-bottom: 1px solid #aaa}
   padding: 6px;
   display: inline-block;
   min-width: 200px;
-  border: 2px dashed black;
+  border: 2px dashed;
+  border-color: transparent;
+}
+#example3.is-empty,
+#example3:hover {
+  border-color: black;
 }
