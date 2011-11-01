@@ -45,10 +45,13 @@
     </div>
     
     <h2>Usage</h2> 
+    
+    <p>In the <code>&lt;head&gt;</code> of your HTML, include jQuery, followed by the plugin, i.e.</p>
+    
+    <pre>&lt;script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js" type="text/javascript"&gt;&lt;/script&gt;
+&lt;script src="jquery.clearinput.js" type="text/javascript"&gt;&lt;/script&gt;</pre>
 
-    <p>You can have multiple clear-input fields on a single page, and they will not conflict.</p> 
-
-    With the default value as a param:<br />
+    The default value can be specified as a param:<br />
     <input name="email" id="example1"/>
     <input type="submit"/>
     <script type="text/javascript">
@@ -63,8 +66,7 @@ $(document).ready(function(){
   $("#example1")<span class="highlight">.clearInput("Enter email")</span>;
 });
 &lt;/script&gt;</pre>
-    <br />
-    With the default value as the <code class="highlight">data-empty-value</code> attribute:<br />
+    or as a <code class="highlight">data-empty-value</code> attribute:<br />
     <input name="email" data-empty-value="Enter email" id="example2"/>
     <input type="submit"/>
     <script type="text/javascript">
@@ -79,6 +81,8 @@ $(document).ready(function(){
   $("#example2")<span class="highlight">.clearInput()</span>;
 });
 &lt;/script&gt;</pre>
+    
+    <p>You can have multiple clear-input fields on a single page, and they will not conflict.</p>
     
     <h2>Download</h2>
     <p>
