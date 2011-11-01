@@ -14,34 +14,28 @@ you can alternatively call clearInput() on any jQuery
 input object.
 */
 (function( $ ){
-  // define the initialValue() function
-  $.fn.initialValue = function(value) {
-    if (value) {
-      return this.attr('data-initial-value', value);
-    } else {
-      return this.attr('data-initial-value');
-    }
-  };
-  
-  $.fn.clearInput = function() {
+  $.fn.clearInput = function(emptyValue){
     return this
+      .each(function(){
+        var $el = $(this),
+          eltEmptyVal = emptyValue || $el.attr('data-empty-value');
+      
+        // store the value as a data property
+        $el.data('empty-value', eltEmptyVal);
+        // initialize the field if it has no value
+        $el.val() || $el.val(eltEmptyVal);
+      })
       .focus(function(){
-        if (this.value == $(this).initialValue()) {
-          this.value = '';
+        var $el = $(this);
+        if ($el.val() === $el.data('empty-value')){
+          $el.val('');
         }
       })
       .blur(function(){
-        if (this.value == '') {
-          this.value = $(this).initialValue();
+        var $el = $(this);
+        if (!$el.val()){
+          $el.val($el.data('empty-value'));
         }
-      })
-      .each(function(index, elt) {
-        $(this).initialValue(this.value);
       });
   };
-
-  // apply plugin to all inputs with class ".clear-input"
-  $(function() {
-    $('input.clear-input').clearInput();
-  });
 })( jQuery );

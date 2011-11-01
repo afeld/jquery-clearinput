@@ -46,31 +46,37 @@
     
     <h2>Usage</h2> 
 
-    <p>Requires jQuery version Add the class <code>clear-input</code> to any text input element whose value you want cleared when it gains focus.  The initial value will be replaced when the input loses focus, and no new text has been entered.</p> 
-
-    <p>If you prefer to not add classes to your elements, you can alternatively call <code>clearInput()</code> on any jQuery input object.</p> 
-
     <p>You can have multiple clear-input fields on a single page, and they will not conflict.</p> 
 
-    <h2>Examples</h2>
-    Using the <em>clear-input</em> class:<br />
-    <input name="email" class="clear-input" value="Email address">
-    <input type="submit" />
-    <pre>&lt;input name="email" <span class="highlight">class="clear-input"</span> value="Email address"&gt;</pre>
-    <br />
-    Using the <em>clearInput()</em> function:<br />
-    <input name="email" value="Enter email" id="clear-me">
-    <input type="submit" />
+    With the default value as a param:<br />
+    <input name="email" id="example1"/>
+    <input type="submit"/>
     <script type="text/javascript">
     $(document).ready(function(){
-      $("#clear-me").clearInput();
+      $("#example1").clearInput("Enter email");
     });
     </script>
-    <pre>&lt;input name="email" value="Enter email" id="clear-me"&gt;
+    <pre>&lt;input name="email" id="example1"&gt;
 
 &lt;script type="text/javascript"&gt;
 $(document).ready(function(){
-  $("#clear-me")<span class="highlight">.clearInput()</span>;
+  $("#example1")<span class="highlight">.clearInput("Enter email")</span>;
+});
+&lt;/script&gt;</pre>
+    <br />
+    With the default value as the <code class="highlight">data-empty-value</code> attribute:<br />
+    <input name="email" data-empty-value="Enter email" id="example2"/>
+    <input type="submit"/>
+    <script type="text/javascript">
+    $(document).ready(function(){
+      $("#example2").clearInput();
+    });
+    </script>
+    <pre>&lt;input name="email" <span class="highlight">data-empty-value="Enter email"</span> id="example2"&gt;
+
+&lt;script type="text/javascript"&gt;
+$(document).ready(function(){
+  $("#example2")<span class="highlight">.clearInput()</span>;
 });
 &lt;/script&gt;</pre>
     

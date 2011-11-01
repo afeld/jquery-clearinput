@@ -3,25 +3,18 @@
 <html>
 <head>
   <title>jQuery Clear-Input Sample</title>
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js" type="text/javascript"></script>
   <script src="jquery.clearinput.js" type="text/javascript"></script>
 </head>
 <body>
   <h1>jQuery Clear-Input Sample</h1>
-  Using the <em>clear-input</em> class:
   <form>
-    <input name="email" class="clear-input" value="Email address">
-    <input type="submit" />
-  </form>
-  <br />
-  Using the <em>clearInput()</em> function:
-  <form>
-    <input name="email" value="Enter email" id="clear-me">
+    <input name="email" id="clear-me">
     <input type="submit" />
   </form>
   <script type="text/javascript">
   $(document).ready(function(){
-    $("#clear-me").clearInput();
+    $("#clear-me").clearInput("Enter email");
   });
   </script>
 </body>
