@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+	<title>afeld/jquery-clearinput @ GitHub</title>
+	
+	<link type="text/css" rel="stylesheet" media="all" href="style.css" />
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript"></script>
+  <script src="http://github.com/afeld/jquery-clearinput/raw/master/jquery.clearinput.js" type="text/javascript"></script>
+  <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-19048260-2']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+  </script>
+</head>
+
+<body>
+  <a href="http://github.com/afeld/jquery-clearinput"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
+
+  <div id="container">
+
+    <div class="download">
+      <a href="http://github.com/afeld/jquery-clearinput/zipball/master">
+        <img border="0" width="90" src="http://github.com/images/modules/download/zip.png"></a>
+      <a href="http://github.com/afeld/jquery-clearinput/tarball/master">
+        <img border="0" width="90" src="http://github.com/images/modules/download/tar.png"></a>
+    </div>
+
+    <h1><a href="http://github.com/afeld/jquery-clearinput">jquery-clearinput</a>
+      <span class="small">by <a href="http://github.com/afeld">afeld</a></span></h1>
+
+    <div class="description">
+      Clears the instructions from an HTML form input on focus, replacing the text if nothing is entered.
+    </div>
+    
+    <h2>Usage</h2> 
+
+    <p>Requires jQuery version Add the class <code>clear-input</code> to any text input element whose value you want cleared when it gains focus.  The initial value will be replaced when the input loses focus, and no new text has been entered.</p> 
+
+    <p>If you prefer to not add classes to your elements, you can alternatively call <code>clearInput()</code> on any jQuery input object.</p> 
+
+    <p>You can have multiple clear-input fields on a single page, and they will not conflict.</p> 
+
+    <h2>Examples</h2>
+    Using the <em>clear-input</em> class:<br />
+    <input name="email" class="clear-input" value="Email address">
+    <input type="submit" />
+    <pre>
+      &lt;input name="email" <span class="highlight">class="clear-input"</span> value="Email address"&gt;
+    </pre>
+    <br />
+    Using the <em>clearInput()</em> function:<br />
+    <input name="email" value="Enter email" id="clear-me">
+    <input type="submit" />
+    <script type="text/javascript">
+    $(document).ready(function(){
+      $("#clear-me").clearInput();
+    });
+    </script>
+    <pre>
+      &lt;input name="email" value="Enter email" id="clear-me"&gt;
+
+      &lt;script type="text/javascript"&gt;
+      $(document).ready(function(){
+        $("#clear-me")<span class="highlight">.clearInput()</span>;
+      });
+      &lt;/script&gt;
+    </pre>
+    
+    <h2>Download</h2>
+    <p>
+      You can download this project in either
+      <a href="http://github.com/afeld/jquery-clearinput/zipball/master">zip</a> or
+      <a href="http://github.com/afeld/jquery-clearinput/tarball/master">tar</a> formats.
+    </p>
+    <p>You can also clone the project with <a href="http://git-scm.com">Git</a>
+      by running:
+      <pre>$ git clone git://github.com/afeld/jquery-clearinput</pre>
+    </p>
+    
+
+    <h2>Requirements</h2> 
+    <p>Compatible with jQuery v1.2+.</p>
+    
+    <h2>Authors</h2>
+    <p>Aidan Feldman (aidan.feldman@gmail.com)</p>
+
+    <div class="footer">
+      get the source code on GitHub : <a href="http://github.com/afeld/jquery-clearinput">afeld/jquery-clearinput</a>
+    </div>
+
+  </div>
+
+  
+</body>
+</html>
